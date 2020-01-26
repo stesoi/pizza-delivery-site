@@ -101,7 +101,6 @@ export default class Cart extends Component {
     }
     else{
       var tmp = this.state.pizzas_in_cart.slice();
-      console.log(tmp);
       var phone = document.getElementById("phone").value.replace(/[^0-9]/g, '');
       var address = document.getElementById("address").value;
       var date = new Date();
@@ -117,7 +116,6 @@ export default class Cart extends Component {
           date: date
         };
       });
-      console.log(orderData);
       fetch('api/orders/', {
         method:'post',
         headers: {
@@ -130,7 +128,6 @@ export default class Cart extends Component {
        return response.json();
      })
      .then(data => {
-       console.log(data);
        alert("Order is accepted!");
        localStorage.setItem('pizzas_in_cart', JSON.stringify({}));
        this.setState({pizzas_in_cart: [], pizzas_in_ls: JSON.parse(localStorage.getItem('pizzas_in_cart'))});

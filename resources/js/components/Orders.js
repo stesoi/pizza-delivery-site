@@ -32,7 +32,6 @@ export default class Orders extends Component {
             return response.json();
         })
         .then(orders => {
-            console.log(orders);
             this.setState({orders: orders});
         });
   }

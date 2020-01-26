@@ -31,11 +31,9 @@ export default class MenuPizza extends Component {
       if(pizzas_in_cart == null){
         pizzas_in_cart = {};
         pizzas_in_cart[id] = 1;
-        console.log(pizzas_in_cart);
       }
       else{
         pizzas_in_cart = JSON.parse(pizzas_in_cart);
-        console.log(pizzas_in_cart);
         if (pizzas_in_cart[id] === undefined){
           pizzas_in_cart[id] = 1;
         }
@@ -48,7 +46,6 @@ export default class MenuPizza extends Component {
     }
 
     renderPizzasList() {
-      console.log(this.state.pizzas);
       return this.state.pizzas.map(pizza => {
         var path_to_img = `./jpg/${pizza.id}.jpg`;
         return (

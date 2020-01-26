@@ -79360,7 +79360,6 @@ function (_Component) {
         alert("To complete the order, enter the address and phone number!");
       } else {
         var tmp = this.state.pizzas_in_cart.slice();
-        console.log(tmp);
         var phone = document.getElementById("phone").value.replace(/[^0-9]/g, '');
         var address = document.getElementById("address").value;
         var date = new Date();
@@ -79376,7 +79375,6 @@ function (_Component) {
             date: date
           };
         });
-        console.log(orderData);
         fetch('api/orders/', {
           method: 'post',
           headers: {
@@ -79387,7 +79385,6 @@ function (_Component) {
         }).then(function (response) {
           return response.json();
         }).then(function (data) {
-          console.log(data);
           alert("Order is accepted!");
           localStorage.setItem('pizzas_in_cart', JSON.stringify({}));
 
@@ -79617,10 +79614,8 @@ function (_Component) {
       if (pizzas_in_cart == null) {
         pizzas_in_cart = {};
         pizzas_in_cart[id] = 1;
-        console.log(pizzas_in_cart);
       } else {
         pizzas_in_cart = JSON.parse(pizzas_in_cart);
-        console.log(pizzas_in_cart);
 
         if (pizzas_in_cart[id] === undefined) {
           pizzas_in_cart[id] = 1;
@@ -79637,7 +79632,6 @@ function (_Component) {
     value: function renderPizzasList() {
       var _this3 = this;
 
-      console.log(this.state.pizzas);
       return this.state.pizzas.map(function (pizza) {
         var path_to_img = "./jpg/".concat(pizza.id, ".jpg");
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -79756,8 +79750,6 @@ function (_Component) {
       }).then(function (response) {
         return response.json();
       }).then(function (orders) {
-        console.log(orders);
-
         _this2.setState({
           orders: orders
         });

@@ -10,7 +10,7 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $fillable = [
-      'phone', 'pizza', 'address', 'price_dollar', 'price_euro', 'date'
+      'phone', 'pizza', 'number', 'address', 'price_dollar', 'price_euro', 'date'
     ];
 
     public $timestamps = false;
